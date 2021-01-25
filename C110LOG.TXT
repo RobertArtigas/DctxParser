@@ -1,0 +1,7 @@
+Error: memory block free'd twice
+0108C62B  0001:0008B62B ClaRUN.dll
+00408B5E  0001:00007B5E DctxParser.exe
+010CFE29  0001:000CEE29 ClaRUN.dll
+77418944  0001:00067944 ntdll.dll
+77418914  0001:00067914 ntdll.dll
+----------------------------------

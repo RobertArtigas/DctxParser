@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionary Name="invoice" Version="1" DctxFormat="4">
+	<DictionaryVersion Version="1" Description="Initial version"/>
+	<Table Guid="{c08d3051-9ecf-454c-8797-ed9defacd0e5}" Ident="1" Name="Invoice" Prefix="INV" Driver="TOPSPEED" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="11 DEC 2012" ModifiedTime=" 5:13:16PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{918563e1-53ee-48ef-9438-57a674d2a942}" Ident="1" Name="ID" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="ID:" ReportHeading="ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(INV:ID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;ID:&apos;),USE(?INV:ID:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(INV:ID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{821065f6-8f21-4617-bd57-f40fdc8048af}" Ident="11" Name="Customer" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Customer:" ReportHeading="Customer" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(INV:Customer),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Customer:&apos;),USE(?INV:Customer:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(INV:Customer),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{d46a371e-ccd2-4395-a434-153a1c049fbf}" Ident="2" Name="Date" DataType="LONG" Size="4" ScreenPicture="@d6" ScreenPrompt="Date:" ReportHeading="Date" Justification="RIGHT" Offset="1" ReportControl=" STRING(@d6),USE(INV:Date),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Date:&apos;),USE(?INV:Date:Prompt)"/>
+				<Line Text=" ENTRY(@d6),USE(INV:Date),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{d55eb0fe-80bf-49d8-a878-52f1ea87d60f}" Ident="3" Name="Paid" DataType="BYTE" Size="1" ScreenPicture="@n3" ScreenPrompt="Paid:" ReportHeading="Paid" WindowControl=" CHECK(&apos;Paid&apos;),USE(INV:Paid)" ReportControl=" CHECK(&apos;Paid&apos;),USE(INV:Paid)">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="BOOLEAN"/>
+		</Field>
+		<Field Guid="{d20d5fdd-d084-48d9-a8ea-1fc775197ed8}" Ident="34" Name="Terms" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Terms:" ReportHeading="Terms" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(INV:Terms),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" OPTION(&apos;Terms&apos;),AT(,,50,48),USE(INV:Terms),BOXED"/>
+				<Line Text=" RADIO(&apos;COD&apos;),USE(?INV:Terms:Radio1),VALUE(&apos;0&apos;)"/>
+				<Line Text=" RADIO(&apos;7 Days&apos;),USE(?INV:Terms:Radio2),VALUE(&apos;1&apos;)"/>
+				<Line Text=" RADIO(&apos;30 Days&apos;),USE(?INV:Terms:Radio3),VALUE(&apos;2&apos;)"/>
+				<Line Text=" END"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="INLIST" Choices="COD|7 Days|30 Days" Values="0|1|2"/>
+		</Field>
+		<Key Guid="{901d3877-1070-48f4-b100-26f25ea7c0c8}" Ident="1" Order="1" Name="Key" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{20bce5b7-fdb6-4f2a-ac6b-16e29ec24a27}" FieldId="{918563e1-53ee-48ef-9438-57a674d2a942}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{784268d9-5efd-4f72-9f3f-8b8112a380d8}" Ident="8" Order="2" Name="CustomerKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{a9269ffa-52a5-43c3-8888-b306f1cb7ad6}" FieldId="{821065f6-8f21-4617-bd57-f40fdc8048af}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{7a8a50b9-40b9-45b5-8d79-61606395d88a}" Ident="8" Name="LookupTest" Prefix="LOO" Driver="TOPSPEED" Create="true" Thread="true">
+		<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:20:15AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="11 DEC 2012" ModifiedTime=" 5:13:16PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{06dd1617-d1e8-4c48-96af-d562a1a760a7}" Ident="35" Name="LookupId" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Lookup Id:" ReportHeading="Lookup Id" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LOO:LookupId),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Lookup Id:&apos;),USE(?LOO:LookupId:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LOO:LookupId),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:20:27AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{9cc9d33c-df11-4fc0-bacc-4c7396aa918e}" Ident="36" Name="InvoiceId" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Invoice Id:" ReportHeading="Invoice Id" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LOO:InvoiceId),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Invoice Id:&apos;),USE(?LOO:InvoiceId:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LOO:InvoiceId),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:20:34AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{6a89991f-b6be-4ae1-90bc-3b69a69a84c4}" Ident="37" Name="CustomerId" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Customer Id:" ReportHeading="Customer Id" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LOO:CustomerId),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Customer Id:&apos;),USE(?LOO:CustomerId:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LOO:CustomerId),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:20:40AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{6541fa8f-12f8-4232-aadc-348e25a95ac7}" Ident="38" Name="ProductId" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Product Id:" ReportHeading="Product Id" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LOO:ProductId),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Product Id:&apos;),USE(?LOO:ProductId:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LOO:ProductId),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:20:45AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{671a8285-1d83-4504-bf6a-bf6255437fc4}" Ident="19" Order="1" Name="IdKey" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:20:53AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{875c5af8-aecf-4553-a160-251b927aed7b}" FieldId="{06dd1617-d1e8-4c48-96af-d562a1a760a7}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:20:53AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{662bcb2e-abb0-44e2-850f-5d59f22ce04b}" Ident="20" Order="2" Name="CustomerKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:21:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{873a81ab-376b-474a-8b9f-621b2c44ac6a}" FieldId="{6a89991f-b6be-4ae1-90bc-3b69a69a84c4}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:21:46AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{c0706196-133f-43f1-a59a-24b7609b4a53}" Ident="21" Order="3" Name="InvoiceKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:21:54AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{4cfb6770-a36f-44ef-9223-bbee51c7aaf2}" FieldId="{9cc9d33c-df11-4fc0-bacc-4c7396aa918e}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:21:54AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{e61d89f3-ff3c-4a01-b1e2-6060ee2d7f31}" Ident="22" Order="4" Name="ProductKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:22:03AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{88083eca-d12a-4989-9a10-2675f93a193f}" FieldId="{6541fa8f-12f8-4232-aadc-348e25a95ac7}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:22:03AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{18350c28-8891-44b6-9458-2cfc5817ee58}" Ident="6" Name="Shippers" Prefix="SHI" Driver="TOPSPEED" Create="true" Thread="true">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="11 DEC 2012" ModifiedTime=" 5:13:16PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{ffc43417-408d-4ec7-b5c1-0b210fc80217}" Ident="26" Name="ShipperCode" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Shipper Code:" ReportHeading="Shipper Code" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(SHI:ShipperCode),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Shipper Code:&apos;),USE(?SHI:ShipperCode:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(SHI:ShipperCode),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{dae212d5-ae24-4830-9fcd-0bf9fa27d304}" Ident="27" Name="Shipper" DataType="STRING" Size="20" ScreenPicture="@s20" ScreenPrompt="Shipper:" ReportHeading="Shipper" ReportControl=" STRING(@s20),USE(SHI:Shipper)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Shipper:&apos;),USE(?SHI:Shipper:Prompt)"/>
+				<Line Text=" ENTRY(@s20),USE(SHI:Shipper)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{43345059-c744-4f08-bea2-99a7835253b6}" Ident="10" Order="1" Name="key" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{0d5b0e33-e66d-4f1d-bd5a-c052212da785}" FieldId="{ffc43417-408d-4ec7-b5c1-0b210fc80217}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{803ad25e-7c49-406c-9de4-429c4385bdc1}" Ident="11" Order="2" Name="DescKey" KeyType="KEY" Unique="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{61951930-097a-4518-bd15-0eb31e2add1a}" FieldId="{dae212d5-ae24-4830-9fcd-0bf9fa27d304}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{3e016a0b-0422-4259-9ad3-19a96d96ebca}" Ident="3" Name="Product" Prefix="PRO" Driver="TOPSPEED" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 8 MAY 2018" ModifiedTime=" 9:28:27AM" ModifiedVersionNumber="1"/>
+		<Field Guid="{ac8b5887-b226-45d4-8dc1-4f5e5ee3dbb5}" Ident="13" Name="ID" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="ID:" ReportHeading="ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(PRO:ID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;ID:&apos;),USE(?PRO:ID:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(PRO:ID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{afa4e915-c138-4c8a-9a05-8da6bb51ef23}" Ident="14" Name="Name" DataType="STRING" Size="40" ScreenPicture="@s40" ScreenPrompt="Name:" ReportHeading="Name" ReportControl=" STRING(@s40),USE(PRO:Name)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Name:&apos;),USE(?PRO:Name:Prompt)"/>
+				<Line Text=" ENTRY(@s40),USE(PRO:Name)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{f58017d1-ad36-4da2-b193-1a5459a11245}" Ident="15" Name="RRP" DataType="DECIMAL" Size="7" Places="2" ScreenPicture="@n-10.2" ScreenPrompt="RRP:" ReportHeading="RRP" Justification="DECIMAL" Offset="12" ReportControl=" STRING(@n-10.2),USE(PRO:RRP),DECIMAL(12)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;RRP:&apos;),USE(?PRO:RRP:Prompt)"/>
+				<Line Text=" ENTRY(@n-10.2),USE(PRO:RRP),DECIMAL(12)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{5dacf5c1-1236-498c-841e-0671f62976ed}" Name="Description" DataType="MEMO" Size="2000" ScreenPicture="@s255" ScreenPrompt="Description:" ReportHeading="Description" ReportControl=" STRING(@s255),USE(PRO:Description)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Description:&apos;),USE(?PRO:Description:Prompt)"/>
+				<Line Text=" ENTRY(@s255),USE(PRO:Description)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate=" 8 MAY 2018" CreateTime=" 9:28:16AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate=" 8 MAY 2018" ModifiedTime=" 9:28:16AM" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{4640d5ab-e376-430c-ad61-8891521fa97c}" Ident="4" Order="1" Name="Key" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{029e2746-edff-4c73-8416-b6faa40cef4a}" FieldId="{ac8b5887-b226-45d4-8dc1-4f5e5ee3dbb5}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{2f2e365e-5823-4a92-ac8b-206f0201cbe4}" Ident="5" Order="2" Name="NameKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{be224290-916c-4b4a-a17b-cb65e0d9bd15}" FieldId="{afa4e915-c138-4c8a-9a05-8da6bb51ef23}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{36c310ed-e429-41cf-a7f4-0a187169073b}" Ident="2" Name="LineItems" Prefix="LIN" Driver="TOPSPEED" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="11 DEC 2012" ModifiedTime=" 5:13:16PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{268b054b-2c2f-4e6a-b908-692e780a052b}" Ident="5" Name="ID" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="ID:" ReportHeading="ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LIN:ID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;ID:&apos;),USE(?LIN:ID:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LIN:ID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{189adbbc-e81c-4e5f-aebe-5f2f32f44b78}" Ident="6" Name="InvoiceNumber" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Invoice Number:" ReportHeading="Invoice Number" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LIN:InvoiceNumber),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Invoice Number:&apos;),USE(?LIN:InvoiceNumber:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LIN:InvoiceNumber),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{0cfb4caa-abf4-498f-a563-25fca3745f83}" Ident="7" Name="Product" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Product:" ReportHeading="Product" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LIN:Product),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Product:&apos;),USE(?LIN:Product:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LIN:Product),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{c2cc22e3-6e0b-499f-bd09-8ec0d83a2a90}" Ident="8" Name="Price" DataType="DECIMAL" Size="7" Places="2" ScreenPicture="@n-10.2" ScreenPrompt="Price:" ReportHeading="Price" Justification="DECIMAL" Offset="12" ReportControl=" STRING(@n-10.2),USE(LIN:Price),DECIMAL(12)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Price:&apos;),USE(?LIN:Price:Prompt)"/>
+				<Line Text=" ENTRY(@n-10.2),USE(LIN:Price),DECIMAL(12)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{6bbb4ee4-2c6b-4631-929c-0e2016db6b1a}" Ident="9" Name="Quantity" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Quantity:" ReportHeading="Quantity" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LIN:Quantity),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Quantity:&apos;),USE(?LIN:Quantity:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LIN:Quantity),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{cffebb78-3629-46dd-b901-b48263c958a0}" Ident="2" Order="1" Name="Key" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{bb9e7e05-e7bb-40b6-aa1c-c453b92f30aa}" FieldId="{268b054b-2c2f-4e6a-b908-692e780a052b}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{7886fe32-7cf3-4bcc-af12-01a8a4438d84}" Ident="6" Order="2" Name="ProductKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{2cd28aa0-9d98-4b74-9877-761b9b9e0594}" FieldId="{0cfb4caa-abf4-498f-a563-25fca3745f83}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{7ba296c5-24fa-4ee2-9e1d-c2b682bbe1e9}" Ident="3" Order="3" Name="InvKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{2f407d12-f439-443c-92f4-00129eb0b236}" FieldId="{189adbbc-e81c-4e5f-aebe-5f2f32f44b78}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{20bf2dda-863a-4c90-af2d-0e05731ccc19}" FieldId="{268b054b-2c2f-4e6a-b908-692e780a052b}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{c43be46a-9207-43c2-a667-2c2212cfa1c4}" Ident="4" Name="Customer" Prefix="CUS" Driver="TOPSPEED" Create="true" Thread="true" Bindable="true">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="14 NOV 2018" ModifiedTime=" 9:48:53AM" ModifiedVersionNumber="1"/>
+		<Field Guid="{6bd33966-decd-4478-91a6-087411ea93dc}" Ident="17" Name="ID" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="ID:" ReportHeading="ID" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(CUS:ID),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;ID:&apos;),USE(?CUS:ID:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(CUS:ID),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{5ca7709d-d378-486a-9f69-1d4b759b9ed1}" Ident="18" Name="Name" DataType="STRING" Size="20" ScreenPicture="@s20" ScreenPrompt="Name:" ReportHeading="Name" ReportControl=" STRING(@s20),USE(CUS:Name)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Name:&apos;),USE(?CUS:Name:Prompt)"/>
+				<Line Text=" ENTRY(@s20),USE(CUS:Name)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{04babb22-46a7-4d8b-8e66-7c905fd2638e}" Ident="20" Name="CountryCode" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Country Code:" ReportHeading="Country Code" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(CUS:CountryCode),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Country Code:&apos;),USE(?CUS:CountryCode:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(CUS:CountryCode),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{d33b4492-d5b8-4210-8b81-926267f69d72}" Ident="21" Name="ShipperCode" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Shipper Code:" ReportHeading="Shipper Code" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(CUS:ShipperCode),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Shipper Code:&apos;),USE(?CUS:ShipperCode:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(CUS:ShipperCode),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{13df8508-fe2e-4390-9249-4227fdc1aad3}" Ident="9" Order="1" Name="NameKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{c4fa1412-10b2-43eb-bf3d-aabd1799308d}" FieldId="{5ca7709d-d378-486a-9f69-1d4b759b9ed1}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{1a0839b0-3dc2-4cf2-940f-5bd6ae974645}" Ident="7" Order="2" Name="Key" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{e33e2238-c312-499a-821c-773832c10690}" FieldId="{6bd33966-decd-4478-91a6-087411ea93dc}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{dd32e376-54f1-423f-866f-5f0781b04203}" Ident="16" Order="3" Name="CountryKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{d137bc64-de8d-4354-b28f-bb536afa1d40}" FieldId="{04babb22-46a7-4d8b-8e66-7c905fd2638e}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{eed868a1-8964-4883-b4d4-0cd91f038326}" Ident="17" Order="4" Name="ShipperKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{af02cde1-c7f8-4ba6-ab9e-9cbca964c1a0}" FieldId="{d33b4492-d5b8-4210-8b81-926267f69d72}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{63d327e3-b784-4512-80f8-0ad423a3cb9a}" Ident="5" Name="Countries" Prefix="COU" Driver="TOPSPEED" Create="true" Thread="true">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="11 DEC 2012" ModifiedTime=" 5:13:16PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{a21cbba9-68e2-49de-b1c4-6ec7b3f229a0}" Ident="29" Name="CountryCode" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Country Code:" ReportHeading="Country Code" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(COU:CountryCode),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Country Code:&apos;),USE(?COU:CountryCode:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(COU:CountryCode),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{73bfe9ff-e130-49a1-a513-77901687a84d}" Ident="30" Name="Country" DataType="STRING" Size="30" ScreenPicture="@s30" ScreenPrompt="Country:" ReportHeading="Country" ReportControl=" STRING(@s30),USE(COU:Country)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Country:&apos;),USE(?COU:Country:Prompt)"/>
+				<Line Text=" ENTRY(@s30),USE(COU:Country)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{8acad12d-0304-4d0e-8f04-5183881cc784}" Ident="12" Order="1" Name="key" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{a4766a88-54d8-4106-9c36-3130cfbb71e2}" FieldId="{a21cbba9-68e2-49de-b1c4-6ec7b3f229a0}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{478c077c-54b6-4ba9-9451-9cd593237ab5}" Ident="13" Order="2" Name="DescKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{50b62539-5dd9-41ee-b5da-5797957c7413}" FieldId="{73bfe9ff-e130-49a1-a513-77901687a84d}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Table Guid="{a5210e19-384a-49af-8024-8cca76d40b2a}" Ident="7" Name="LinkCountriesShippers" Prefix="LCS" Driver="TOPSPEED" Create="true" Thread="true">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedDate="11 DEC 2012" ModifiedTime=" 5:13:16PM" ModifiedVersionNumber="1"/>
+		<Field Guid="{5971cb16-8ed2-4c20-aafa-a41ccc5aca25}" Ident="32" Name="Code" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Code:" ReportHeading="Code" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LCS:Code),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Code:&apos;),USE(?LCS:Code:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LCS:Code),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{5192dbbb-3777-4dd0-a3ba-7bb23893fe54}" Ident="23" Name="CountryCode" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Country Code:" ReportHeading="Country Code" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LCS:CountryCode),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Country Code:&apos;),USE(?LCS:CountryCode:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LCS:CountryCode),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Field Guid="{acca8393-8c47-4f9b-9007-658db9fad8aa}" Ident="24" Name="ShipperCode" DataType="LONG" Size="4" ScreenPicture="@n-14" ScreenPrompt="Shipper Code:" ReportHeading="Shipper Code" Justification="RIGHT" Offset="1" ReportControl=" STRING(@n-14),USE(LCS:ShipperCode),RIGHT(1)">
+			<WindowControl>
+				<Line Text=" PROMPT(&apos;Shipper Code:&apos;),USE(?LCS:ShipperCode:Prompt)"/>
+				<Line Text=" ENTRY(@n-14),USE(LCS:ShipperCode),RIGHT(1)"/>
+			</WindowControl>
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Validity Check="NOCHECKS"/>
+		</Field>
+		<Key Guid="{5e11bb45-10ec-4b36-810f-1020f9ca7ad3}" Ident="18" Order="1" Name="key" KeyType="KEY" Unique="true" Primary="true" AutoNumber="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{556a7162-3033-4b16-b196-a5430234874d}" FieldId="{5971cb16-8ed2-4c20-aafa-a41ccc5aca25}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{64c51453-ef6a-4bd0-ac6e-d392116b9b48}" Ident="14" Order="2" Name="CountryKey" KeyType="KEY" Unique="true" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{7cfe1dab-be40-4056-9e4b-ee93a1c57352}" FieldId="{5192dbbb-3777-4dd0-a3ba-7bb23893fe54}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{bd6ef5ec-b662-4084-8ee1-11c11fc4096a}" FieldId="{acca8393-8c47-4f9b-9007-658db9fad8aa}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+		<Key Guid="{19660c5d-905d-4dc2-97a4-ad4859298502}" Ident="15" Order="3" Name="ShipperKey" KeyType="KEY" Exclude="true">
+			<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			<Component Guid="{b67d55c5-bf87-4d73-9fb2-55d9603e8f3b}" FieldId="{acca8393-8c47-4f9b-9007-658db9fad8aa}" Order="1" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+			<Component Guid="{65c16c26-2a5a-4a3e-a82d-02f5ae6cae76}" FieldId="{5192dbbb-3777-4dd0-a3ba-7bb23893fe54}" Order="2" Ascend="true">
+				<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+			</Component>
+		</Key>
+	</Table>
+	<Relation Guid="{0f4299ec-19ce-4e3d-9c1a-851ee84882af}" PrimaryTable="{c08d3051-9ecf-454c-8797-ed9defacd0e5}" ForeignTable="{7a8a50b9-40b9-45b5-8d79-61606395d88a}" PrimaryKey="{901d3877-1070-48f4-b100-26f25ea7c0c8}" ForeignKey="{c0706196-133f-43f1-a59a-24b7609b4a53}">
+		<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:22:20AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{34c81d97-b371-46a6-82c8-7212e3c2ead7}" Field="{918563e1-53ee-48ef-9438-57a674d2a942}"/>
+		<PrimaryMapping Guid="{0b1303f5-c78f-4111-8f02-e03d94f12610}" Field="{9cc9d33c-df11-4fc0-bacc-4c7396aa918e}"/>
+	</Relation>
+	<Relation Guid="{31b71e55-35fa-42d5-8ea6-b7c8e37108ea}" PrimaryTable="{3e016a0b-0422-4259-9ad3-19a96d96ebca}" ForeignTable="{7a8a50b9-40b9-45b5-8d79-61606395d88a}" PrimaryKey="{4640d5ab-e376-430c-ad61-8891521fa97c}" ForeignKey="{e61d89f3-ff3c-4a01-b1e2-6060ee2d7f31}">
+		<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:22:34AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{0b2d72e9-d3e6-42b4-b899-ec82a37c8f8e}" Field="{ac8b5887-b226-45d4-8dc1-4f5e5ee3dbb5}"/>
+		<PrimaryMapping Guid="{fc9b7c6e-81d8-42ab-bc6f-969b35665570}" Field="{6541fa8f-12f8-4232-aadc-348e25a95ac7}"/>
+	</Relation>
+	<Relation Guid="{e95b042a-9e0c-41f9-bc21-81f8a6d680f0}" PrimaryTable="{c43be46a-9207-43c2-a667-2c2212cfa1c4}" ForeignTable="{7a8a50b9-40b9-45b5-8d79-61606395d88a}" PrimaryKey="{1a0839b0-3dc2-4cf2-940f-5bd6ae974645}" ForeignKey="{662bcb2e-abb0-44e2-850f-5d59f22ce04b}">
+		<Audit CreateUser="Administrator" CreateDate="26 NOV 2010" CreateTime="10:22:47AM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{d848f520-7427-46bb-a1c4-0db834a6bf4d}" Field="{6bd33966-decd-4478-91a6-087411ea93dc}"/>
+		<PrimaryMapping Guid="{c5614b35-ccf0-4e42-9095-c5aee09586c2}" Field="{6a89991f-b6be-4ae1-90bc-3b69a69a84c4}"/>
+	</Relation>
+	<Relation Guid="{628b1aa9-e383-409b-8614-95e3734dab3b}" PrimaryTable="{63d327e3-b784-4512-80f8-0ad423a3cb9a}" ForeignTable="{a5210e19-384a-49af-8024-8cca76d40b2a}" PrimaryKey="{8acad12d-0304-4d0e-8f04-5183881cc784}" ForeignKey="{64c51453-ef6a-4bd0-ac6e-d392116b9b48}" Delete="RESTRICT">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{972ab629-7b7b-4b33-9b4a-411c476cb767}" Field="{a21cbba9-68e2-49de-b1c4-6ec7b3f229a0}"/>
+		<PrimaryMapping Guid="{a6a7e86b-63e0-4500-a0d8-9166410920be}" Field="{5192dbbb-3777-4dd0-a3ba-7bb23893fe54}"/>
+	</Relation>
+	<Relation Guid="{d6410a92-8b3d-46cc-a456-10a95a9c27ce}" PrimaryTable="{63d327e3-b784-4512-80f8-0ad423a3cb9a}" ForeignTable="{c43be46a-9207-43c2-a667-2c2212cfa1c4}" PrimaryKey="{8acad12d-0304-4d0e-8f04-5183881cc784}" ForeignKey="{dd32e376-54f1-423f-866f-5f0781b04203}" Delete="RESTRICT">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{37441e1a-23a0-43bf-b09c-9ee9c231e33a}" Field="{a21cbba9-68e2-49de-b1c4-6ec7b3f229a0}"/>
+		<PrimaryMapping Guid="{e9bf0706-db48-473b-b06c-d63a8f450658}" Field="{04babb22-46a7-4d8b-8e66-7c905fd2638e}"/>
+	</Relation>
+	<Relation Guid="{2dbd752b-3343-4d1f-8712-516e54b21568}" PrimaryTable="{18350c28-8891-44b6-9458-2cfc5817ee58}" ForeignTable="{c43be46a-9207-43c2-a667-2c2212cfa1c4}" PrimaryKey="{43345059-c744-4f08-bea2-99a7835253b6}" ForeignKey="{eed868a1-8964-4883-b4d4-0cd91f038326}">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{a2334221-8bb8-4bf5-b098-4932388cb8a3}" Field="{ffc43417-408d-4ec7-b5c1-0b210fc80217}"/>
+		<PrimaryMapping Guid="{8cb4a054-0f17-413c-8872-48e18ebdc358}" Field="{d33b4492-d5b8-4210-8b81-926267f69d72}"/>
+	</Relation>
+	<Relation Guid="{d32ef56a-e057-4d18-8b54-959387ae34df}" PrimaryTable="{18350c28-8891-44b6-9458-2cfc5817ee58}" ForeignTable="{a5210e19-384a-49af-8024-8cca76d40b2a}" PrimaryKey="{43345059-c744-4f08-bea2-99a7835253b6}" ForeignKey="{19660c5d-905d-4dc2-97a4-ad4859298502}">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{e7cd2ec4-ccb8-4d26-95bb-549eda4cd8e0}" Field="{ffc43417-408d-4ec7-b5c1-0b210fc80217}"/>
+		<PrimaryMapping Guid="{892f70ee-3726-4654-ae53-1a4b054fc21a}" Field="{acca8393-8c47-4f9b-9007-658db9fad8aa}"/>
+	</Relation>
+	<Relation Guid="{7a915016-65a1-463f-aab4-574d5cb41ae8}" PrimaryTable="{c43be46a-9207-43c2-a667-2c2212cfa1c4}" ForeignTable="{c08d3051-9ecf-454c-8797-ed9defacd0e5}" PrimaryKey="{1a0839b0-3dc2-4cf2-940f-5bd6ae974645}" ForeignKey="{784268d9-5efd-4f72-9f3f-8b8112a380d8}">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{f82dba42-f386-457f-9932-6063e4297c8a}" Field="{6bd33966-decd-4478-91a6-087411ea93dc}"/>
+		<PrimaryMapping Guid="{cae18a63-a1eb-40cd-b8c1-3eafe1922ba3}" Field="{821065f6-8f21-4617-bd57-f40fdc8048af}"/>
+	</Relation>
+	<Relation Guid="{ed5c0db4-d63a-4f35-a849-591c2ba346b1}" PrimaryTable="{3e016a0b-0422-4259-9ad3-19a96d96ebca}" ForeignTable="{36c310ed-e429-41cf-a7f4-0a187169073b}" PrimaryKey="{4640d5ab-e376-430c-ad61-8891521fa97c}" ForeignKey="{7886fe32-7cf3-4bcc-af12-01a8a4438d84}">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{f1cec651-b58b-4997-8dfa-29570e5417d9}" Field="{ac8b5887-b226-45d4-8dc1-4f5e5ee3dbb5}"/>
+		<PrimaryMapping Guid="{f884055e-bc8a-4c9b-9528-b88dc7b11f22}" Field="{0cfb4caa-abf4-498f-a563-25fca3745f83}"/>
+	</Relation>
+	<Relation Guid="{86bb66ad-88a7-46d2-88a5-653fb81c5f87}" PrimaryTable="{c08d3051-9ecf-454c-8797-ed9defacd0e5}" ForeignTable="{36c310ed-e429-41cf-a7f4-0a187169073b}" PrimaryKey="{901d3877-1070-48f4-b100-26f25ea7c0c8}" ForeignKey="{7ba296c5-24fa-4ee2-9e1d-c2b682bbe1e9}" Delete="CASCADE" Update="CASCADE">
+		<Audit CreateUser="Administrator" CreateDate="12 SEP 2006" CreateTime=" 5:27:14PM" CreateVersionNumber="1" ModifiedUser="Administrator" ModifiedVersionNumber="1"/>
+		<ForeignMapping Guid="{b8b3777b-8935-4b3e-85cf-80fce53d4247}" Field="{918563e1-53ee-48ef-9438-57a674d2a942}"/>
+		<PrimaryMapping Guid="{8534447a-a32c-4a26-aa9b-81cbc5ef02c0}" Field="{189adbbc-e81c-4e5f-aebe-5f2f32f44b78}"/>
+	</Relation>
+</Dictionary>
+
